@@ -2,16 +2,14 @@
     let baseURL = 'https://deckofcardsapi.com/api/deck';
 
     // 1.
-    axios
-    .get(`${baseURL}/new/draw/`).then(data => {
+    axios.get(`${baseURL}/new/draw/`).then(data => {
         let {suit,value} = data.cards[0];
         console.log(`${value.toLowerCase()} of ${suit.toLowerCase()}`);
     })
 
     // 2.
     let firstCard = null;
-    axios
-    .get(`${baseURL}/new/draw/`)
+    axios.get(`${baseURL}/new/draw/`)
     .then(data => {
         firstCard = data.cards[0];
         let deckId = data.deck_id;
@@ -31,8 +29,7 @@
       let $btn = $('button');
       let $cardArea = $('#card-area');
 
-      axios
-      .get(`${baseURL}/new/shuffle/`).then(data => {
+      axios.get(`${baseURL}/new/shuffle/`).then(data => {
         deckId = data.deck_id;
         $btn.show();
       });
